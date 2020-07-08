@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from '../shared/auth.service';
-import {Router,ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private auth:AuthService,
-              private router:Router,
-              private route:ActivatedRoute) { }
+              private router:Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -49,13 +48,10 @@ export class LoginComponent implements OnInit {
     
     this.auth.login(this.loginForm.value).subscribe(
       (token)=>{
-        console.log(token)
         this.router.navigate(['/home']);
-      // },
-      // (errorResponse)=>{
-      //   this.errors=errorResponse.error.errors;
-      // }
-    // )
+      },
+      (error)=>{
+        console.log(error);
        } )
   }
 }

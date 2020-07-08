@@ -9,11 +9,13 @@ import {Router} from "@angular/router";
 })
 
 export class HeaderComponent{
-    constructor(public auth:AuthService,
+    constructor(private auth:AuthService,
                 private router:Router){}
 
     logout(){
         this.auth.logout();
+
         this.router.navigate(['/login']);
     }
+    
 }

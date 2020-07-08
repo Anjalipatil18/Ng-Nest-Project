@@ -8,10 +8,11 @@ import { HomeComponent } from './home/home.component';
 
 import {HomeModule} from './home/home.module';
 import {AuthModule} from './auth/auth.module';
+
 import { AppRoutingModule } from './/app-routing.module';
 
 const routes:Routes=[
-  {path:'',redirectTo:'/home',pathMatch:'full'}
+  {path:'',redirectTo:'/login',pathMatch:'full'}
 ]
 
 @NgModule({

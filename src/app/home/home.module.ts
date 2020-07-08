@@ -5,10 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import {HomeComponent} from './home.component';
 
-// import {AuthGuard} from '../auth/shared/auth.guard';
+import {AuthGuard} from '../auth/shared/auth.guard';
 
 const routes:Routes=[
-    {path:'home', component:HomeComponent}
+    {path:'home', component:HomeComponent,canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -20,7 +20,9 @@ const routes:Routes=[
         RouterModule.forRoot(routes),
         HttpClientModule
     ],
-    providers:[]
+    providers:[
+        AuthGuard
+    ]
 })
 
 export class HomeModule{}

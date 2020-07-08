@@ -25,6 +25,7 @@ const routes:Routes=[
   ],
   providers: [
     AuthService
+    
   ],
 })
 export class AuthModule { }
