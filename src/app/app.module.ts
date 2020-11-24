@@ -4,7 +4,6 @@ import{Routes,RouterModule}  from '@angular/router';
 
 import { AppComponent } from './app.component';
 import{HeaderComponent} from './common/header/header.component';
-import { HomeComponent } from './home/home.component';
 
 import {HomeModule} from './home/home.module';
 import {AuthModule} from './auth/auth.module';

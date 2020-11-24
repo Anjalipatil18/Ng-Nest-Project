@@ -26,12 +26,9 @@ export class LoginComponent implements OnInit {
   initForm() {
     this.loginForm = this.fb.group({
       
-      emailOrPhone: ['', [Validators.required,
-                          Validators.pattern('^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$')]],
-      deviceId:'12345',
-      devType:3,
-      loginType: 1,
-      password: ['', Validators.required]
+      username: ['admin', [Validators.required]],
+   
+      password: ['123', [Validators.required]]
     })
   }
 
@@ -43,15 +40,35 @@ export class LoginComponent implements OnInit {
   isRequired(fieldName): boolean {
     return this.loginForm.controls[fieldName].errors.required
   }
-
-  login(){
-    
-    this.auth.login(this.loginForm.value).subscribe(
-      (token)=>{
+  
+  login() {
+    // this.auth.login(this.loginForm.value).subscribe(
+    //   (token) => {
         this.router.navigate(['/home']);
-      },
-      (error)=>{
-        console.log(error);
-       } )
+      // },
+      // (errorResponse) => {
+      //   this.errors = errorResponse.error.errors;
+      // })
   }
+
+  // login(){
+    
+  //   const val = this.loginForm.value;
+
+  //   this.auth.login(val.username, val.password)
+  //       .subscribe(
+  //           (reply:any) => {
+
+  //               localStorage.setItem("authJwtToken",
+  //                   reply.authJwtToken);
+
+  //               this.router.navigateByUrl('/home');
+
+  //           }
+  //           // err => {
+  //           //     console.log("Login failed:", err);
+  //           //     alert('Login failed.');
+  //           // }
+  //       );
+  // }
 }

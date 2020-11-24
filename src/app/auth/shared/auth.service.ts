@@ -1,50 +1,41 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-import * as jwt from 'jsonwebtoken';
-import * as moment from 'moment';
-import 'rxjs/Rx';
+import {Injectable} from "@angular/core";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import { map, catchError } from 'rxjs/operators';
+import {User} from "../model/user.model";
+// import { JwtHelperService } from '@auth0/angular-jwt';
 
-class DecodedToken{
-  exp:number=0;
-}
 
 @Injectable()
-export class AuthService{
-  private decodedToken;
+export class AuthService {
 
-  constructor(private http:HttpClient){
-    this.decodedToken=JSON.parse(localStorage.getItem('auth_meta'))||new DecodedToken();
-  }
+    constructor(private http:HttpClient) {
 
-  private saveToken(formData:string):string{
+    }
+
+    // private saveToken(data: any): string {
     
-    Object.entries(formData).map(([key, value]) => [key, value ])
-    let data=formData['data']
-    Object.entries(data).map(([key, value]) => [key, value ])
-    let token=(data['token']);
-    this.decodedToken = jwt.decode(token);
+    //     localStorage.setItem('data', data);
+    
+    //     return data;
+    //   }
+    // getAll() {
+    //     return this.http.get<User>('http://localhost:3000/api/users');
+    // }
 
-    localStorage.setItem('authToken',token);
-    localStorage.setItem('auth_meta',JSON.stringify(this.decodedToken));
-
-    return token;
-  }
-
-  public login(userData:any):Observable<any>{
-    return this.http.post('https://dev-api.service-genie.xyz/customer/signIn',userData).map(
-        (token: string) => this.saveToken(token)); 
-  }
-
-  public logout(){
-    localStorage.removeItem('authToken');
-
-    this.decodedToken=new DecodedToken();
-}
+    // public login(userData: any): Observable<any> {
+    //     return this.http.post('http://localhost:3000/api/users', userData).pipe(map(
+    //       (data: string) => this.saveToken(data)));
+    //   }
 
 
-  public isAuthenticated():boolean {
-    return moment().isBefore(moment.unix(this.decodedToken.exp));
-  }
-  
+    // logout() {
+    //     // remove user from local storage to log user out
+    //     localStorage.removeItem('currentUser');
+    // }
+
+    // login(username:string, password:string): Observable<User> {
+    //     return this.http.post<User>('/api/users', {username,password});
+    // }
+
 }

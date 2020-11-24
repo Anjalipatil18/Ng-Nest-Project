@@ -13,7 +13,7 @@ export class HeaderComponent{
                 private router:Router){}
 
     logout(){
-        this.auth.logout();
+        // this.auth.logout();
 
         this.router.navigate(['/login']);
     }
