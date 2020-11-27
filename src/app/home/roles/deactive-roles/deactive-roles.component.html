@@ -1,0 +1,18 @@
+<div class="alert alert-info"><auth-navvar></auth-navvar></div>
+<table  >
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>description</th>
+    <th>displayName</th>
+  </tr>
+  
+  <tr *ngFor="let role of roles"  class="alert alert-light " class= "table table-borderd"  >
+      <td *ngIf="role.isDeleted===true"> {{role.id}}</td>
+      <td *ngIf="role.isDeleted===true"> {{role.name}}</td>
+      <td *ngIf="role.isDeleted===true"> {{role.description}}</td>
+      <td *ngIf="role.isDeleted===true"> {{role.displayName}}</td>
+  </tr>
+</table>
+
+     

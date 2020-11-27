@@ -20,20 +20,32 @@ import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { ActiveUsersComponent } from './users/active-users/active-users.component';
 import { DeactiveUsersComponent } from './users/deactive-users/deactive-users.component';
 import { NavvarComponent } from './navvar/navvar.component';
+import { ActiveRolesComponent } from './roles/active-roles/active-roles.component';
+import { DeactiveRolesComponent } from './roles/deactive-roles/deactive-roles.component';
+import { ActiveRelationComponent } from './user-role-rel/active-relation/active-relation.component';
+import { DeactiveRelationComponent } from './user-role-rel/deactive-relation/deactive-relation.component';
 
 const routes:Routes=[
     // {path:'home', component:HomeComponent,canActivate:[AuthGuard]},
     {path:'home', component:HomeComponent},
+
     {path:'roles', component:RolesComponent},
     {path:'createRoles', component:CreateRolesComponent},
     {path:'updateRoles', component:UpdateRolesComponent},
+    {path:'ActiveRoles', component:ActiveRolesComponent},
+    {path:'DeactiveRoles', component:DeactiveRolesComponent},
+
     {path:'users', component:UsersComponent},
     {path:'ActiveUsers', component:ActiveUsersComponent},
     {path:'DeactiveUsers', component:DeactiveUsersComponent},
     {path:'createUsers', component:CreateUsersComponent},
     {path:'updateUser', component:UpdateUserComponent},
+
     {path:'userRoleRelation', component:UserRoleRelComponent},
-    {path:'createUserRoleRelation', component:CreateUserRoleRelComponent}
+    {path:'createUserRoleRelation', component:CreateUserRoleRelComponent},
+    {path:'ActiveRelation', component:ActiveRelationComponent},
+    {path:'DeactiveRelation', component:DeactiveRelationComponent},
+    
 ]
 
 @NgModule({
@@ -50,6 +62,10 @@ const routes:Routes=[
         ActiveUsersComponent,
         DeactiveUsersComponent,
         NavvarComponent,
+        ActiveRolesComponent,
+        DeactiveRolesComponent,
+        ActiveRelationComponent,
+        DeactiveRelationComponent,
     ],
     imports:[
         CommonModule,

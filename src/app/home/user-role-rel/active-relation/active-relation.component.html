@@ -1,0 +1,16 @@
+<div class="alert alert-info"><auth-navvar></auth-navvar></div>
+<table  >
+  <tr>
+    <th>id</th>
+    <th>userId</th>
+    <th>roleId</th>
+  </tr>
+  
+  <tr *ngFor="let relation of relations"  class="alert alert-light " class= "table table-borderd"  >
+      <td *ngIf="relation.isDeleted===false"> {{relation.id}}</td>
+      <td *ngIf="relation.isDeleted===false"> {{relation.userId}}</td>
+      <td *ngIf="relation.isDeleted===false"> {{relation.roleId}}</td>
+  </tr>
+</table>
+
+     

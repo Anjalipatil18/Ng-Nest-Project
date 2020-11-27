@@ -4,12 +4,14 @@
     <th>id</th>
     <th>username</th>
     <th>password</th>
+   
   </tr>
   
   <tr *ngFor="let user of users"  class="alert alert-light " class= "table table-borderd"  >
       <td *ngIf="user.isDeleted===false"> {{user.id}}</td>
       <td *ngIf="user.isDeleted===false"> {{user.username}}</td>
       <td *ngIf="user.isDeleted===false"> {{user.password}}</td>
+      
   </tr>
 </table>
 
