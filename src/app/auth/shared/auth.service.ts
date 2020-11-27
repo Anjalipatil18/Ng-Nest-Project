@@ -1,8 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient,HttpHeaders } from "@angular/common/http";
 import {Observable} from "rxjs";
-import { map, catchError } from 'rxjs/operators';
-import {User} from "../model/user.model";
 import {Router} from '@angular/router';
 
 
@@ -10,8 +8,7 @@ import {Router} from '@angular/router';
 export class AuthService {
 
     constructor(private http:HttpClient,
-              private router:Router) {
-
+                private router:Router) {
     }
     
     async  login(username:string,password:string):Promise<boolean>{
@@ -30,7 +27,6 @@ export class AuthService {
       }
     }
     
-
     private async getAuthFromLocalStorage() {
       const username = localStorage.getItem('username');
       const password = localStorage.getItem('password');
@@ -49,6 +45,9 @@ export class AuthService {
     }
     return true;
   }
+  
+
+
   
     public logout() {
         // remove user from local storage to log user out

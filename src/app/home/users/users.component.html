@@ -27,7 +27,7 @@
     <td> {{user.password}}</td>
     <td> {{user.isDeleted}}</td>
     <td><button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td>
-    <td>  <button [routerLink]="['/users', user.id]" routerLinkActive="active" class="btn btn-secondary">
+    <td>  <button [routerLink]="['/updateUser', user.id]" routerLinkActive="active" class="btn btn-secondary">
       Edit
     </button></td>
   </tr>

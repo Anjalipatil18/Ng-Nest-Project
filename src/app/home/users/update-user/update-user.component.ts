@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {UserService} from '../users.service';
 import {Router,ActivatedRoute } from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {User} from '../../interface/users';
 
 @Component({
@@ -25,6 +24,7 @@ export class UpdateUserComponent implements OnInit {
 
   ngOnInit() {
     const params = this.activatedRoute.snapshot.params;
+    console.log(params.id)
     if (params.id) {
       this.userService.getUser(params.id)
         .subscribe(
@@ -39,8 +39,8 @@ export class UpdateUserComponent implements OnInit {
   }
 
   updateUser() {
-    // delete this.user.createdAt;
-    this.userService.updateUser(this.user._id, this.user)
+    const params = this.activatedRoute.snapshot.params;
+    this.userService.updateUser(params.id, this.user)
       .subscribe(
         res => {
           console.log(res);

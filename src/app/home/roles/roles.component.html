@@ -6,7 +6,7 @@
 
     <a  routerLink="/ActiveRoles" ><button  class="btn btn-danger">
       Active Roles</button></a>
-      
+
       <a  routerLink="/DeactiveRoles" ><button  class="btn btn-secondary">
         Deactive Roles</button></a>
 </div>
@@ -31,8 +31,8 @@
       <td> {{roles.description}}</td>
       <td> {{roles.isDeleted}}</td>
       <td><button (click)="deleteRole(roles.id)" class="btn btn-danger">Delete</button></td>
-      <td> <button  class="btn btn-secondary">
-        Edit Role
-      </button> </td>
+      <td>  <button [routerLink]="['/updateRole', roles.id]" routerLinkActive="active" class="btn btn-secondary">
+      Edit
+    </button></td>
     </tr>
 </table>

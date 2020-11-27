@@ -19,9 +19,14 @@ export class RolesService {
     return this.http.get<Role[]>(`${this.BASE_URL}/api/roles`,{headers});
   }
 
-  // getRole(id: string): Observable<Role>{
-  //       return this.http.get<Role>(`${this.BASE_URL}/roles/${id}`);
-  //     }
+  getRole(id: string): Observable<Role>{
+    let basicString=this.getHeaders();
+
+    let headers=new HttpHeaders(
+      {Authorization:basicString}
+    );
+        return this.http.get<Role>(`${this.BASE_URL}/api/roles/${id}`);
+  }
 
   createRole(Role: Role): Observable<Role> {
     let basicString=this.getHeaders();
@@ -32,11 +37,14 @@ export class RolesService {
         return this.http.post<Role>(`${this.BASE_URL}/api/roles`, Role,{headers});
   }
 
+    updateRole(id: string, Role: Role): Observable<Role> {
+      let basicString=this.getHeaders();
 
-        
-  //   updateRole(id: string, Role: Role): Observable<Role> {
-  //     return this.http.put<Role>(`${this.BASE_URL}/Role/update?id=${id}`, Role);
-  //   }
+      let headers=new HttpHeaders(
+        {Authorization:basicString}
+      );
+      return this.http.patch<Role>(`${this.BASE_URL}/api/roles/${id}`, Role,{headers});
+    }
 
   deleteRole(id: string): Observable<Role> {
     let basicString=this.getHeaders();

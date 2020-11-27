@@ -35,7 +35,5 @@ export function authenticate(usersService: IUsersService): Authenticate {
 function getAuthorizationCredentials(header: string) {
   const base64Credentials = header.split(' ')[1];
   const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
-  console.log(credentials)
-
   return credentials.split(':');
 }

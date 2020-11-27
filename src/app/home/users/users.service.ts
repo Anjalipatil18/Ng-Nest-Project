@@ -20,7 +20,6 @@ export class UserService {
     return this.http.get<User[]>(`${this.BASE_URL}/api/users`,{headers});
   }
 
-
   getUser(id: string): Observable<User>{
     let basicString=this.getHeaders();
 
@@ -46,7 +45,7 @@ export class UserService {
     let headers=new HttpHeaders(
       {Authorization:basicString}
     );
-    return this.http.put<User>(`${this.BASE_URL}/api/users/${id}`,user, {headers});
+    return this.http.patch<User>(`${this.BASE_URL}/api/users/${id}`,user, {headers});
   }
 
   deleteUser(_id: string): Observable<User> {
@@ -58,7 +57,6 @@ export class UserService {
     return this.http.delete<User>(`${this.BASE_URL}/api/users/${_id}`,{headers});
   }
 
- 
 
   getHeaders(){
     let username='admin'

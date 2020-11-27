@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Role } from '../interface/roles';
-import { Router, ActivatedRoute } from '@angular/router';
 import{RolesService} from './roles.service';
 
 @Component({
@@ -12,9 +11,7 @@ import{RolesService} from './roles.service';
 export class RolesComponent implements OnInit {
   role: Role[];
 
-  constructor( private roleService: RolesService,
-               private router: Router,
-               private activatedRoute: ActivatedRoute) { }
+  constructor( private roleService: RolesService) { }
 
   ngOnInit() {
     this.getRoles();

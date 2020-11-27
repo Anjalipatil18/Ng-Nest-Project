@@ -9,19 +9,24 @@ import {RolesService} from '../home/roles/roles.service';
 import {UserRoleRelationService} from '../home/user-role-rel/user-role-rel.service';
 
 import {HomeComponent} from './home.component';
+// import {AuthGuard} from '../auth/shared/auth.guard';
+
 import { RolesComponent } from './roles/roles.component';
-import { UsersComponent } from './users/users.component';
 import { UserRoleRelComponent } from './user-role-rel/user-role-rel.component';
 import { CreateRolesComponent } from './roles/create-roles/create-roles.component';
+import { ActiveRolesComponent } from './roles/active-roles/active-roles.component';
+import { DeactiveRolesComponent } from './roles/deactive-roles/deactive-roles.component';
+import { UpdateRoleComponent } from './roles/update-role/update-role.component';
+
+import { UsersComponent } from './users/users.component';
 import { CreateUsersComponent } from '../home/users/create-users/create-users.component';
 import { CreateUserRoleRelComponent } from './user-role-rel/create-user-role-rel/create-user-role-rel.component';
-import { UpdateRolesComponent } from './roles/update-roles/update-roles.component';
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { ActiveUsersComponent } from './users/active-users/active-users.component';
 import { DeactiveUsersComponent } from './users/deactive-users/deactive-users.component';
+
 import { NavvarComponent } from './navvar/navvar.component';
-import { ActiveRolesComponent } from './roles/active-roles/active-roles.component';
-import { DeactiveRolesComponent } from './roles/deactive-roles/deactive-roles.component';
+
 import { ActiveRelationComponent } from './user-role-rel/active-relation/active-relation.component';
 import { DeactiveRelationComponent } from './user-role-rel/deactive-relation/deactive-relation.component';
 
@@ -31,21 +36,21 @@ const routes:Routes=[
 
     {path:'roles', component:RolesComponent},
     {path:'createRoles', component:CreateRolesComponent},
-    {path:'updateRoles', component:UpdateRolesComponent},
     {path:'ActiveRoles', component:ActiveRolesComponent},
     {path:'DeactiveRoles', component:DeactiveRolesComponent},
+    {path:'updateRole/:id', component:UpdateRoleComponent},
 
     {path:'users', component:UsersComponent},
+    {path:'createUsers', component:CreateUsersComponent},
     {path:'ActiveUsers', component:ActiveUsersComponent},
     {path:'DeactiveUsers', component:DeactiveUsersComponent},
-    {path:'createUsers', component:CreateUsersComponent},
-    {path:'updateUser', component:UpdateUserComponent},
+    {path:'updateUser/:id', component:UpdateUserComponent},
 
     {path:'userRoleRelation', component:UserRoleRelComponent},
     {path:'createUserRoleRelation', component:CreateUserRoleRelComponent},
     {path:'ActiveRelation', component:ActiveRelationComponent},
     {path:'DeactiveRelation', component:DeactiveRelationComponent},
-    
+
 ]
 
 @NgModule({
@@ -57,7 +62,7 @@ const routes:Routes=[
         CreateRolesComponent,
         CreateUsersComponent,
         CreateUserRoleRelComponent,
-        UpdateRolesComponent,
+        UpdateRoleComponent,
         UpdateUserComponent,
         ActiveUsersComponent,
         DeactiveUsersComponent,
@@ -65,7 +70,7 @@ const routes:Routes=[
         ActiveRolesComponent,
         DeactiveRolesComponent,
         ActiveRelationComponent,
-        DeactiveRelationComponent,
+        DeactiveRelationComponent
     ],
     imports:[
         CommonModule,
@@ -77,7 +82,8 @@ const routes:Routes=[
     providers:[
         UserService,
         RolesService,
-        UserRoleRelationService
+        UserRoleRelationService,
+        // AuthGuard
     ]
 })
 
