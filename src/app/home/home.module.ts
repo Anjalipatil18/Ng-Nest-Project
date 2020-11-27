@@ -2,11 +2,11 @@ import{NgModule} from '@angular/core';
 import {CommonModule}from '@angular/common';
 import{Routes,RouterModule}  from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 
 import {UserService} from '../home/users/users.service';
 import {RolesService} from '../home/roles/roles.service';
+import {UserRoleRelationService} from '../home/user-role-rel/user-role-rel.service';
 
 import {HomeComponent} from './home.component';
 import { RolesComponent } from './roles/roles.component';
@@ -19,6 +19,7 @@ import { UpdateRolesComponent } from './roles/update-roles/update-roles.componen
 import { UpdateUserComponent } from './users/update-user/update-user.component';
 import { ActiveUsersComponent } from './users/active-users/active-users.component';
 import { DeactiveUsersComponent } from './users/deactive-users/deactive-users.component';
+import { NavvarComponent } from './navvar/navvar.component';
 
 const routes:Routes=[
     // {path:'home', component:HomeComponent,canActivate:[AuthGuard]},
@@ -47,7 +48,8 @@ const routes:Routes=[
         UpdateRolesComponent,
         UpdateUserComponent,
         ActiveUsersComponent,
-        DeactiveUsersComponent
+        DeactiveUsersComponent,
+        NavvarComponent,
     ],
     imports:[
         CommonModule,
@@ -58,7 +60,8 @@ const routes:Routes=[
     ],
     providers:[
         UserService,
-        RolesService
+        RolesService,
+        UserRoleRelationService
     ]
 })
 

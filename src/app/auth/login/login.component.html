@@ -1,42 +1,41 @@
-﻿     <section id="login">
-        <div class="bwm-form">
-          <div class="row">
-            <div class="col-md-5">
-              <h1  class="page-title">Login</h1>
-             
-              <form [formGroup]="loginForm" (ngSubmit)="login()">
-                <div class="form-group" >
-                  <label  for="username">username</label>
-                  <input type="username"
-                         class="form-control"
-                         id="username"
-                         formControlName="username" >
-                  <div *ngIf="isInvalidForm('username')"
-                    class="alert alert-danger">
-      
-                    <div *ngIf="isRequired('username')">
-                      username is required.
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="password">Password</label>
-                  <input type="password"
-                         class="form-control"
-                         id="password"
-                         formControlName="password">
-                    <div *ngIf="isInvalidForm('password')"
-                        class="alert alert-danger">
+﻿<section id="login">
+  <div class="bwm-form">
+    <div class="row">
+      <div class="col-md-5">
+        <h1  class="page-title">Login</h1>
         
-                        <div *ngIf="isRequired('password')">
-                          password is required.
-                        </div>
-                    </div>
-                </div>
-                <button [disabled]="!loginForm.valid" type="submit" class="btn btn-bwm">Submit</button>
-              </form>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group" >
+            <label  for="username">username</label>
+            <input type="username"
+                    class="form-control"
+                    id="username"
+                    formControlName="username" >
+            <div *ngIf="isInvalidForm('username')"
+              class="alert alert-danger">
+
+              <div *ngIf="isRequired('username')">
+                username is required.
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                    class="form-control"
+                    id="password"
+                    formControlName="password">
+              <div *ngIf="isInvalidForm('password')"
+                  class="alert alert-danger">
+  
+                  <div *ngIf="isRequired('password')">
+                    password is required.
+                  </div>
+              </div>
+          </div>
+          <button [disabled]="!loginForm.valid" type="submit" class="btn btn-bwm">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
