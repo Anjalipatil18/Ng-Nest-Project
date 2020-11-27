@@ -1,30 +1,34 @@
-<div class="card card-body mb-2">
-  <div class="row">
-    <div class="col-md-8">
-      <!-- <ul>
-        <li>
-          id: {{product._id}}
-        </li>
-        <li>
-          name: {{product.name}}
-        </li>
-        <li>
-          description: {{product.description}}
-        </li>
-        <li>
-          price: {{product.price}}
-        </li>
-        <li>
-          createdAt: {{product.createdAt}}
-        </li>
-      </ul> -->
-      <button  class="btn btn-danger">
-        Delete
-      </button>
-      <button  class="btn btn-secondary">
-        Edit
-      </button>
-    </div>
-   
-  </div>
+<div class="alert alert-info">
+  <a  routerLink="/createUsers" ><button  class="btn btn-danger">
+    Create User</button></a>
+    <a  routerLink="/ActiveUsers" ><button  class="btn btn-danger">
+      Active Users</button></a>
+      <a  routerLink="/DeactiveUsers" ><button  class="btn btn-danger">
+        Deactive Users</button></a>
+</div> 
+
+<div class="alert alert-dark">
+  <h1>All Users......</h1><br>
 </div>
+
+<table >
+  <tr>
+    <th>id</th>
+    <th>username</th>
+    <th >password</th>
+    <th colspan="3">isDeleted</th>
+  </tr>
+  
+  <tr *ngFor="let user of users" class="alert alert-light " class= "table table-borderd" >
+    <td> {{user.id}}</td>
+    <td> {{user.username}}</td>
+    <td> {{user.password}}</td>
+    <td> {{user.isDeleted}}</td>
+    <td><button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td>
+    <td>  <button [routerLink]="['/users', user.id]" routerLinkActive="active" class="btn btn-secondary">
+      Edit
+    </button></td>
+  </tr>
+</table>
+
+     

@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import {AuthComponent} from './auth.component';
 
 import {AuthService} from './shared/auth.service';
+// import {AuthGuard} from './shared/auth.guard';
 
 const routes:Routes=[
     {path:'login', component:LoginComponent}
@@ -24,8 +25,8 @@ const routes:Routes=[
     ReactiveFormsModule
   ],
   providers: [
-    AuthService
-    
+    AuthService,
+    // AuthGuard
   ],
 })
 export class AuthModule { }

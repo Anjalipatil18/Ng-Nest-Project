@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "start": "nodemon",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
     "start:dev": "nodemon",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "jest --runInBand --verbose",

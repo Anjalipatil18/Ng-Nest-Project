@@ -2,7 +2,7 @@
 @import 'variables';
 
 html,body,p {
-    color:$main-text-color;
+  color:$main-text-color;
 }
 
 .clickable{
@@ -14,8 +14,8 @@ html,body,p {
   border-color: $main-color;
   color: white;
   padding: 15px 30px;
-  font-size: 20px;
-
+  font-size: 40px;
+ 
   &:hover, &:focus, &:active {
     border-color: $main-color !important;
     background-color: $main-color !important;
@@ -24,9 +24,12 @@ html,body,p {
 
 .bwm-form {
   color: $main-text-color;
+  background-color: rgb(226, 231, 236);
+  width:500px;
 
   form {
     margin-bottom: 20px;
+    width: 250px;
   }
 
   .alert {
@@ -39,33 +42,19 @@ html,body,p {
     font-weight: 700;
     margin-bottom: 30px;
   }
-  // .image-container {
-  //   position: relative;
-
-  //   img {
-  //     width: 100%;
-  //     border-radius: 5px;
-  //   }
-  // }
 
   label {
-    font-size: 12px;
+    font-size: 18px;
   }
 
   .form-text {
-    font-size: 20px;
+    font-size: 40px;
   }
+  
   .navbar-custom { 
-    background-color: lightgreen; 
+    background-color: rgb(55, 12, 211); 
+    
 } 
-  // .catchphrase {
-  //   text-align: center;
-  //   font-size: 42px;
-  //   position: absolute;
-  //   color: #f1f1f1;
-  //   padding: 40px;
-  //   background-color: rgba(0,0,0, 0.5);
-  //   margin-top: 50px;
-  //   letter-spacing: 1px;
-  // }
+
+
 }

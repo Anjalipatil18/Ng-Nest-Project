@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {AuthService} from '../shared/auth.service';
 import {Router} from '@angular/router';
@@ -41,34 +41,18 @@ export class LoginComponent implements OnInit {
     return this.loginForm.controls[fieldName].errors.required
   }
   
-  login() {
-    // this.auth.login(this.loginForm.value).subscribe(
-    //   (token) => {
-        this.router.navigate(['/home']);
-      // },
-      // (errorResponse) => {
-      //   this.errors = errorResponse.error.errors;
-      // })
-  }
-
-  // login(){
+  login(){
     
-  //   const val = this.loginForm.value;
+    const val = this.loginForm.value;
 
-  //   this.auth.login(val.username, val.password)
-  //       .subscribe(
-  //           (reply:any) => {
+    this.auth.login(val.username, val.password)
+    .then(()=>{
+      this.router.navigateByUrl('/home');
 
-  //               localStorage.setItem("authJwtToken",
-  //                   reply.authJwtToken);
-
-  //               this.router.navigateByUrl('/home');
-
-  //           }
-  //           // err => {
-  //           //     console.log("Login failed:", err);
-  //           //     alert('Login failed.');
-  //           // }
-  //       );
-  // }
+    }).catch((error)=>{
+      console.log("Login failed:", error);
+      alert('Login failed.');
+    })
+ 
+  }
 }

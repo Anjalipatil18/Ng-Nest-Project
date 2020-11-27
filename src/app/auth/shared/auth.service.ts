@@ -1,41 +1,60 @@
 import {Injectable} from "@angular/core";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient,HttpHeaders } from "@angular/common/http";
 import {Observable} from "rxjs";
 import { map, catchError } from 'rxjs/operators';
 import {User} from "../model/user.model";
-// import { JwtHelperService } from '@auth0/angular-jwt';
+import {Router} from '@angular/router';
 
 
 @Injectable()
 export class AuthService {
 
-    constructor(private http:HttpClient) {
+    constructor(private http:HttpClient,
+              private router:Router) {
 
     }
-
-    // private saveToken(data: any): string {
     
-    //     localStorage.setItem('data', data);
+    async  login(username:string,password:string):Promise<boolean>{
+      await localStorage.setItem('username',username);
+      await localStorage.setItem('password',password);
+      return true
+    }
     
-    //     return data;
-    //   }
-    // getAll() {
-    //     return this.http.get<User>('http://localhost:3000/api/users');
-    // }
+    public async getAuthHeaders() {
+      const {username,password}= await this.getAuthFromLocalStorage();
 
-    // public login(userData: any): Observable<any> {
-    //     return this.http.post('http://localhost:3000/api/users', userData).pipe(map(
-    //       (data: string) => this.saveToken(data)));
-    //   }
+      let authorizationData = 'Basic ' + btoa(username + ':' + password);
+  
+      return {
+        Authorization: authorizationData
+      }
+    }
+    
 
+    private async getAuthFromLocalStorage() {
+      const username = localStorage.getItem('username');
+      const password = localStorage.getItem('password');
+      return {
+        username,
+        password
+      };
+    }
 
-    // logout() {
-    //     // remove user from local storage to log user out
-    //     localStorage.removeItem('currentUser');
-    // }
+    public async isAuthenticated(): Promise<boolean> {
+  
+    const {username, password} = await this.getAuthFromLocalStorage();
 
-    // login(username:string, password:string): Observable<User> {
-    //     return this.http.post<User>('/api/users', {username,password});
-    // }
+    if(!username || !password) {
+      return false;
+    }
+    return true;
+  }
+  
+    public logout() {
+        // remove user from local storage to log user out
+        localStorage.removeItem('username');
+        localStorage.removeItem('password');
 
+    }
+    
 }

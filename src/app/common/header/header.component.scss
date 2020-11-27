@@ -1,23 +1,22 @@
 @import 'variables';
 
 .navbar {
-    padding: 20px;
+    padding: 10px;
     margin-bottom: 40px;
-  
-
+    
     .navbar-brand {
-      margin-right: 30px;
+      margin-right: 10px;
       font-size: 30px;
       letter-spacing: 1px;
-      color: $main-color;
+      color: black;
       font-weight: 500;
+      
     }
-  
   
     .nav-item {
       font-size: 20px;
+      
     }
-  
   
       &:hover, &:focus, &:active {
         background-color: transparent;

@@ -1,9 +1,8 @@
 @import 'variables';
 
 .navbar {
-    padding: 20px;
-    margin-bottom: 40px;
-  
+    padding: 0px;
+    margin-bottom: 20px;
 
     .navbar-brand {
       margin-right: 30px;
@@ -12,8 +11,6 @@
       color: $main-color;
       font-weight: 500;
     }
-  
-  
     .nav-item {
       font-size: 20px;
     }
