@@ -16,7 +16,6 @@ export class UserService {
     let headers=new HttpHeaders(
       {Authorization:basicString}
     );
-    console.log("test call");
     return this.http.get<User[]>(`${this.BASE_URL}/api/users`,{headers});
   }
 

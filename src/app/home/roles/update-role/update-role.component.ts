@@ -8,6 +8,7 @@ import {Role} from '../../interface/roles';
   templateUrl: './update-role.component.html',
   styleUrls: ['./update-role.component.scss']
 })
+
 export class UpdateRoleComponent implements OnInit {
   role: Role={
     name: '',

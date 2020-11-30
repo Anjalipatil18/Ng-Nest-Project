@@ -25,7 +25,7 @@ export class RolesService {
     let headers=new HttpHeaders(
       {Authorization:basicString}
     );
-        return this.http.get<Role>(`${this.BASE_URL}/api/roles/${id}`);
+        return this.http.get<Role>(`${this.BASE_URL}/api/roles/${id}`,{headers});
   }
 
   createRole(Role: Role): Observable<Role> {

@@ -29,7 +29,6 @@ export class UsersRepository implements IUsersRepository {
 
     if (query) {
       users = await this.database.find(query);
-      console.log(users)
     } else {
       users = await this.database.find();
     }

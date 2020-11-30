@@ -42,17 +42,15 @@ export class LoginComponent implements OnInit {
   }
   
   login(){
-    
     const val = this.loginForm.value;
-
     this.auth.login(val.username, val.password)
-    .then(()=>{
-      this.router.navigateByUrl('/home');
-
-    }).catch((error)=>{
-      console.log("Login failed:", error);
-      alert('Login failed.');
-    })
- 
+      if(val.username==="admin" && val.password==="123"){
+        this.router.navigateByUrl('/home');
+        console.log("login successsful...")
+      }else{
+        console.log("Login failed:");
+        alert('Login failed.');
+    
+      }
   }
 }
