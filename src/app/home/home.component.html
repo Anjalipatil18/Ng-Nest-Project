@@ -1,4 +1,20 @@
-<div style="text-align: center;" class="alert alert-info">
- <h1>Home Page</h1> 
- <div class="alert alert-info"><auth-navvar></auth-navvar></div>
+<div style="text-align: center;" class="alert alert-dark">
+ <h1>Home Page</h1> <br>
+ <table  >
+    <tr>
+      <th>id</th>
+      <th>username</th>
+      <th>password</th>
+     
+    </tr>
+    
+    <tr *ngFor="let user of users"  class="alert alert-light " class= "table table-borderd"  >
+        <td *ngIf="user.isDeleted===false"> {{user.id}}</td>
+        <td *ngIf="user.isDeleted===false"> {{user.username}}</td>
+        <td *ngIf="user.isDeleted===false"> {{user.password}}</td>
+        
+    </tr>
+  </table>
+  
+ <!-- <div class="alert alert-info"><auth-navvar></auth-navvar></div> -->
    

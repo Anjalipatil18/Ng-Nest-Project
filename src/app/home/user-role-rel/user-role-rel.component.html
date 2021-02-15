@@ -1,17 +1,14 @@
-<div class="alert alert-info"><auth-navvar></auth-navvar></div>
+<!-- <div class="alert alert-info"><auth-navvar></auth-navvar></div> -->
 
-<div class="alert alert-info">
+<div class="alert alert-dark">
+  <h1 style="text-align: center;">User Role Relations</h1> <br>
+
   <a  routerLink="/createUserRoleRelation" ><button  class="btn btn-danger">
     Create Relations</button></a>
     <a  routerLink="/ActiveRelation" ><button  class="btn btn-danger">
       Active Relations</button></a>
       <a  routerLink="/DeactiveRelation" ><button  class="btn btn-secondary">
-        Deactive Relations</button></a>
-</div>
-
-<div class="alert alert-dark">
-  <h1>Relations.....</h1>
-</div>
+        Deactive Relations</button></a><br><br>
 
 <table >
   <tr>
@@ -26,9 +23,9 @@
       <td> {{relation.userId}}</td>
       <td> {{relation.roleId}}</td>
       <td> {{relation.isDeleted}}</td>
-      <td><button (click)="deleteRelation(relation.id)" class="btn btn-danger">Delete</button></td>
       <td> <button  class="btn btn-secondary">
         Edit Role
       </button> </td>
+      <td><button (click)="deleteRelation(relation.id)" class="btn btn-danger">Delete</button></td>
     </tr>
 </table>

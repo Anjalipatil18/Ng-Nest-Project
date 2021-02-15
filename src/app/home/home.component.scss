@@ -1,25 +1,26 @@
-@import 'variables';
-
-.navbar {
-    padding: 0px;
-    margin-bottom: 20px;
-
-    .navbar-brand {
-      margin-right: 30px;
-      font-size: 30px;
-      letter-spacing: 1px;
-      color: $main-color;
-      font-weight: 500;
-    }
-    .nav-item {
-      font-size: 20px;
-    }
+table {
+  width:100%;
   
-      &:hover, &:focus, &:active {
-        background-color: transparent;
-        border-color: $main-color !important;
-        color: $main-color !important;
-        box-shadow: none;
-      }
-    }
-  
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+th{
+  background-color: cadetblue;
+}
+th, td {
+  padding: 15px;
+  text-align: left;
+ 
+}
+#t01 tr:nth-child(even) {
+  background-color: #eee;
+}
+#t01 tr:nth-child(odd) {
+ background-color: #fff;
+}
+#t01 th {
+  background-color: black;
+  color: white;
+}

@@ -1,18 +1,14 @@
-<div class="alert alert-info"><auth-navvar></auth-navvar></div>
+<!-- <div class="alert alert-info"><auth-navvar></auth-navvar></div> -->
 
-<div class="alert alert-info">
+<div class="alert alert-dark">
+  <h1 style="text-align: center;">USERS</h1> <br>
+
   <a  routerLink="/createUsers" ><button  class="btn btn-danger">
     Create User</button></a>
     <a  routerLink="/ActiveUsers" ><button  class="btn btn-danger">
       Active Users</button></a>
       <a  routerLink="/DeactiveUsers" ><button  class="btn btn-secondary">
-        Deactive Users</button></a>
-</div> 
-
-<div class="alert alert-dark">
-  <h1>All Users......</h1><br>
-</div>
-
+        Deactive Users</button></a><br><br>
 <table >
   <tr>
     <th>id</th>
@@ -26,10 +22,11 @@
     <td> {{user.username}}</td>
     <td> {{user.password}}</td>
     <td> {{user.isDeleted}}</td>
-    <td><button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td>
     <td>  <button [routerLink]="['/updateUser', user.id]" routerLinkActive="active" class="btn btn-secondary">
       Edit
     </button></td>
+    <td><button (click)="deleteUser(user.id)" class="btn btn-danger">Delete</button></td>
+
   </tr>
 </table>
 
